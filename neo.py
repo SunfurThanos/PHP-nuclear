@@ -1,2 +1,4 @@
+import os
+
 neo = "Hola Andrade :)"
-print (neo)
+print (neo, os)

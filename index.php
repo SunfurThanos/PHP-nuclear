@@ -1,6 +1,5 @@
-
 <?php
-
-echo "hello World"
-
+    $item='Everything is awesome!!';
+    $tmp = exec("neo.py");
+    echo $tmp;
 ?>

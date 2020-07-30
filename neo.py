@@ -1,2 +1,2 @@
 import os
-print (os)
+print (str(os))

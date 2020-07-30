@@ -1,5 +1,5 @@
 <?php
     $item='Everything is awesome!!';
-    $tmp = exec("neo.py");
+    $tmp = exec("python neo.py");
     echo $tmp;
 ?>

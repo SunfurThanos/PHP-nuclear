@@ -1,4 +1,4 @@
 import os
 
 neo = "Hola Andrade :)"
-print (neo, os)
+print (neo, str(os), [0, 1, 2, 3])

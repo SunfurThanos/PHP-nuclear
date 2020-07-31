@@ -51,7 +51,7 @@ function SEND_server_java() {
 
     boton.className = "btn loading"
 
-    httpRequest('client.php?text-IDE=' + editor.value, function() {
+    httpRequest('morfeo.php?text-IDE=' + editor.value, function() {
         var arreglo = JSON.parse(this.responseText);
         debug.value = arreglo
         boton.className = "btn btn-primary"

@@ -1,4 +1,44 @@
 
+// copiar dirección de correo
+function copy_mail() {
+  texto   = "hormigence123@gmail.com"
+  mensaje = "Dirección de correo copiado al portapapeles..."
+  return COPY_portapapeles(texto, mensaje, 3000)
+}
+
+// copiar datos bancarios para la remesa
+function copy_bank() {
+  texto = "Nombres y apellidos:\nAndrade Felipe Echarry Montes\n\nCedula de identidad:\n25.969.358\n\nNumero de cuenta bancaria:\n01020128400101305258\n\nTipo de cuenta bancaria:\nAhorro\n\nUnidad bancaria:\nBanco de venezuela"
+  mensaje = "Datos copiados al portapapeles..."
+  return COPY_portapapeles(texto, mensaje, 2000)
+}
+
+// funcion generica de copiado al portapapeles
+function COPY_portapapeles(texto, mensaje, time) {
+  canvas = document.getElementById("mesge-tooltip")
+  document.getElementById("MesageCopy-text").innerText = mensaje
+  canvas.className = "MesageCopy"
+
+	var copy = function (e) {
+	    e.preventDefault();
+      canvas.style.display = "block";
+
+      setTimeout(function() {
+        canvas.className = "MesageCopy_hide"
+      }, time)
+
+      if (e.clipboardData) {
+          e.clipboardData.setData('text/plain', texto);
+      } else if (window.clipboardData) {
+          window.clipboardData.setData('Text', texto);
+      }
+  }
+  window.addEventListener('copy', copy);
+  document.execCommand('copy');
+  window.removeEventListener('copy', copy);
+}
+
+
 // boton de subir arriba
 function $ScrollToStart() {
   var $box = document.getElementById("inicio_page");
@@ -72,6 +112,10 @@ function funcion_espacial() {
 setTimeout(funcion_espacial, 100);
 
 
-function abrir_link(link) {
-  window.open( link, "_blank" );
+function abrir_link(link, boot) {
+  if (boot) {
+    document.location = link;
+  } else {
+    window.open( link, "_blank" );
+  }
 }
